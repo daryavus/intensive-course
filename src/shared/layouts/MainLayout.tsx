@@ -1,7 +1,7 @@
 import Header from "../../widgets/LayoutHeader/Header";
 import Footer from "../../widgets/LayoutFooter/Footer";
 
-interface MainLayoutProps {
+type MainLayoutProps = {
   children: React.ReactNode;
 }
 
