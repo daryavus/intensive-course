@@ -12,16 +12,9 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({ children 
   const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-  document.documentElement.classList.remove('light-theme', 'dark-theme');
-  document.documentElement.removeAttribute('data-theme');
-  
-  if (theme === 'dark') {
-    document.documentElement.classList.add('dark-theme');
-    document.documentElement.setAttribute('data-theme', 'dark');
-  } else {
-    document.documentElement.classList.add('light-theme');
-  }
-}, [theme]);
+    document.documentElement.className = `${theme}-theme`;
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
