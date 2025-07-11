@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
+import styles from './Modal.module.css';
 
 type ModalProps = {
   isOpen: boolean;
@@ -10,28 +11,10 @@ export const Modal = ({ isOpen, onClose, children }: PropsWithChildren<ModalProp
   if (!isOpen) return null;
 
   return createPortal(
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0,0,0,0.5)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: 1000,
-    }}>
-      <div style={{
-        padding: '20px',
-        background: 'var(--modal-bg, white)',
-        color: 'var(--text-color, black)',
-        borderRadius: '8px',
-        maxWidth: '500px',
-        width: '90%',
-      }}>
+    <div className={styles.overlay}>
+      <div className={styles.modal}>
         {children}
-        <div style={{ marginTop: '20px', textAlign: 'right' }}>
+        <div className={styles.button}>
           <button onClick={onClose}>Закрыть</button>
         </div>
       </div>
