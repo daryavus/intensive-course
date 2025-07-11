@@ -1,3 +1,4 @@
+import { ThemeProvider } from "../shared/lib/theme/ThemeContext";
 import { MainLayout } from "../shared/layouts/MainLayout";
 import { PostList } from "../widgets/PostList/PostList";
 
@@ -21,9 +22,11 @@ const mockPosts = [
 
 function App() {
   return (
-    <MainLayout>
-      <PostList posts={mockPosts} />
-    </MainLayout>
+    <ThemeProvider>
+      <MainLayout>
+        <PostList posts = {mockPosts} />
+      </MainLayout>
+    </ThemeProvider>
   );
 }
 

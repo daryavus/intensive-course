@@ -1,19 +1,19 @@
 import type { FC } from 'react';
 import { PostCard } from '../../entities/post/ui/PostCard';
 
-interface Post {
+type Post = {
   id: number;
   title: string;
   body: string;
 }
 
-interface PostListProps {
+type PostListProps = {
   posts: Post[];
 }
 
 export const PostList: FC<PostListProps> = ({ posts }) => {
   return (
-    <div className="post-list">
+    <div>
       {posts.map(post => (
         <PostCard
           key={post.id}
